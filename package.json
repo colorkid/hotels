@@ -1,0 +1,25 @@
+{
+  "name": "Hotels",
+  "version": "1.0.0",
+  "description": "Test task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colorkid/colorkid.git"
+  },
+  "author": "Musatov Yuriy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/colorkid/colorkid/issues"
+  },
+  "homepage": "https://github.com/colorkid/colorkid#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-less": "^3.3.0"
+  }
+}
