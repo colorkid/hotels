@@ -193,6 +193,7 @@ main{
   justify-content: space-between;
   align-items: flex-start;
   width: 50%;
+  min-height: 100vh;
   padding: 35px 30px;
   background: #fff;
   z-index: 1;
@@ -483,12 +484,16 @@ main{
 }
 
 .hotel{
-  display: flex;
-  align-items: flex-end;
+  display: none;
+  align-items: stretch;
   flex-wrap: wrap;
   width: 48.335%;
   margin-bottom: 30px;
   position: relative;
+}
+
+.hotel--show{
+  display: flex;
 }
 
 .hotel__pic{

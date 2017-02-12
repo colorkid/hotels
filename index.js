@@ -107,11 +107,13 @@ for(var q = 0; q < allProperties.length; q++){
 		var hotelAp = document.querySelectorAll(".hotel");
 
 		for(var r = 0; r < hotelAp.length; r++){
-			hotelAp[r].style.display = "flex";
-			if(this.checked && hotelAp[r].dataset.property.indexOf(this.id) == -1){
-				hotelAp[r].style.display = "none";
+			if(this.checked && hotelAp[r].dataset.property.indexOf(this.id) !== -1){
+				hotelAp[r].classList.add("hotel--show");
 			}
 
+			if(!this.checked && hotelAp[r].dataset.property.indexOf(this.id) !== -1){
+				hotelAp[r].classList.remove("hotel--show");
+			}	
 		}
 	});
 }
