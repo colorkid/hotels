@@ -57,9 +57,8 @@ for(var q = 0; q < allProperties.length; q++){
 			var propertyInSearchClose = document.createElement('div');
 			propertyInSearchClose.className = "close";
 			propertyInSearch.appendChild(propertyInSearchClose);
-
-
 		}
+
 		else{
 			var allPropertiesInSearch = document.querySelectorAll(".search__roperty");
 
@@ -114,24 +113,8 @@ for(var q = 0; q < allProperties.length; q++){
 			}
 
 		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	});
 }
-
 
 var propertiesGeneral = document.querySelectorAll(".properties");
 var amenitiesShow = document.querySelector(".show .show__plus");
@@ -189,12 +172,6 @@ function getHotels() {
 	xhr.send();
 
 };
-
-
-
-
-
-
 
 
 //Программируем табы
