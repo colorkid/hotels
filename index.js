@@ -105,8 +105,96 @@ for(var q = 0; q < allProperties.length; q++){
 			});
 		}
 
+		var hotelAp = document.querySelectorAll(".hotel");
+
+		for(var r = 0; r < hotelAp.length; r++){
+			hotelAp[r].style.display = "flex";
+			if(this.checked && hotelAp[r].dataset.property.indexOf(this.id) == -1){
+				hotelAp[r].style.display = "none";
+			}
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	});
 }
+
+
+var propertiesGeneral = document.querySelectorAll(".properties");
+var amenitiesShow = document.querySelector(".show .show__plus");
+amenitiesShow.classList.add("show__plus--minus");
+
+amenitiesShow.addEventListener('click', function() {
+	amenitiesShow.classList.toggle("show__plus--minus");
+
+	for(var p = 0; p < propertiesGeneral.length; p++){
+		propertiesGeneral[p].classList.toggle("hidden");
+	}
+});
+
+//рендерин квартир
+
+var hotels = [];
+
+function getElementFromTemplate(data) {
+	var template = document.querySelector("#hotel-template");
+	var element = template.content.children[0].cloneNode(true);
+
+	element.setAttribute("data-price", data.price);
+	element.setAttribute("data-property", data.property);
+	element.querySelector(".hotel__name").textContent = data.name;
+	element.querySelector(".hotel__img").src = data.preview;
+	element.querySelector(".hotel__current").textContent = data.price;
+
+	return element;
+
+}
+
+getHotels();
+
+function renderHotels(hotels) {
+
+	hotels.forEach(function(hotel) {
+		var element = getElementFromTemplate(hotel);
+	  	results.appendChild(element);
+	});
+
+}
+
+function getHotels() {
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', 'data/apartments.json');
+	xhr.onload = function(evt) {
+		var rawData = evt.target.response;
+		var loadedHotels = JSON.parse(rawData);
+
+		renderHotels(loadedHotels);
+
+	};
+
+
+	xhr.send();
+
+};
+
+
+
+
+
+
 
 
 //Программируем табы
@@ -131,18 +219,3 @@ tabHotels.addEventListener('click', function() {
 	results.classList.remove("hidden");
 	map.classList.add("hidden");
 });
-
-
-var propertiesGeneral = document.querySelectorAll(".properties");
-var amenitiesShow = document.querySelector(".show .show__plus");
-amenitiesShow.classList.add("show__plus--minus");
-
-amenitiesShow.addEventListener('click', function() {
-	amenitiesShow.classList.toggle("show__plus--minus");
-
-	for(var p = 0; p < propertiesGeneral.length; p++){
-		propertiesGeneral[p].classList.toggle("hidden");
-	}
-});
-
-
