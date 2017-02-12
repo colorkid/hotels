@@ -108,3 +108,41 @@ for(var q = 0; q < allProperties.length; q++){
 	});
 }
 
+
+//Программируем табы
+var tabHotels = document.querySelector(".tab--accommodations");
+var results = document.querySelector(".results");
+
+var tabMap = document.querySelector(".tab--map");
+var map = document.querySelector(".map");
+
+tabHotels.classList.add("tab--active");
+
+tabMap.addEventListener('click', function() {
+	tabHotels.classList.remove("tab--active");
+	tabMap.classList.add("tab--active");
+	map.classList.remove("hidden");
+	results.classList.add("hidden");
+});
+
+tabHotels.addEventListener('click', function() {
+	tabMap.classList.remove("tab--active");
+	tabHotels.classList.add("tab--active");
+	results.classList.remove("hidden");
+	map.classList.add("hidden");
+});
+
+
+var propertiesGeneral = document.querySelectorAll(".properties");
+var amenitiesShow = document.querySelector(".show .show__plus");
+amenitiesShow.classList.add("show__plus--minus");
+
+amenitiesShow.addEventListener('click', function() {
+	amenitiesShow.classList.toggle("show__plus--minus");
+
+	for(var p = 0; p < propertiesGeneral.length; p++){
+		propertiesGeneral[p].classList.toggle("hidden");
+	}
+});
+
+
